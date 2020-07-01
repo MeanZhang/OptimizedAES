@@ -198,9 +198,8 @@ public class AES128 {
             System.arraycopy(cipher, i * 4, state[i], 0, 4);
         // 轮密钥加
         addRoundKey(state, k[10]);
-        for (int i = 9; i >= 1; i--) {
+        for (int i = 9; i >= 1; i--)
             state = invRoundFunction(state, k[i]);
-        }
         // 逆向字节代替
         invSubBytes(state);
         // 逆向行移位

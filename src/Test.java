@@ -32,15 +32,15 @@ public class Test {
         System.out.println("**********优化后*********");
         System.out.println("加密密钥扩展及构造T盒时间：" + (init1 - start) + " ms");
         System.out.println("加密时间：" + (encrypt1 - init1) + " ms");
-        System.out.println("加密速度：" + c.length() * 8000 / (encrypt1 - init1) + " bits/s");
+        System.out.println("加密速度：" + p.length() * 8000 / (encrypt1 - init1) + " bit/s");
         System.out.println("解密密钥扩展及构造T盒时间：" + (init2 - encrypt1) + " ms");
         System.out.println("解密时间：" + (decrypt1 - init2) + " ms");
-        System.out.println("解密速度：" + p.length() * 8000 / (decrypt1 - init2) + " bits/s");
+        System.out.println("解密速度：" + c.length() * 8000 / (decrypt1 - init2) + " bit/s");
         System.out.println("**********优化前*********");
         System.out.println("密钥扩展时间：" + (build-decrypt1) + " ms");
         System.out.println("加密时间：" + (encrypt2 - build) + " ms");
-        System.out.println("加密速度：" + c.length() * 8000 / (encrypt2 - build) + " bits/s");
+        System.out.println("加密速度：" + p.length() * 8000 / (encrypt2 - build) + " bit/s");
         System.out.println("解密时间：" + (decrypt2 - encrypt2) + " ms");
-        System.out.println("解密速度：" + p.length() * 8000 / (decrypt2 - encrypt2) + " bits/s");
+        System.out.println("解密速度：" + c.length() * 8000 / (decrypt2 - encrypt2) + " bit/s");
     }
 }

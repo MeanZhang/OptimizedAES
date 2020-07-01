@@ -89,9 +89,11 @@ public class AES {
      * 形式为byte[11][4][4]，每一个子密钥由4个字(4字节)组成，一行为一个字
      */
     private byte[][][] k = new byte[11][4][4];
-public AES(byte[] key){
-    keyExpansion(key);
-}
+
+    public AES(byte[] key) {
+        keyExpansion(key);
+    }
+
     /**
      * AES加密
      *
@@ -261,7 +263,7 @@ public AES(byte[] key){
                 w[i][2] = (byte) (w[i - 4][2] ^ S[w[i - 1][3] & 0xff]);
                 w[i][3] = (byte) (w[i - 4][3] ^ S[w[i - 1][0] & 0xff]);
             }
-                // 其他wi = wi-nk ⊕ wi-1
+            // 其他wi = wi-nk ⊕ wi-1
             else
                 for (int j = 0; j < 4; j++)
                     w[i][j] = (byte) (w[i - 4][j] ^ w[i - 1][j]);
