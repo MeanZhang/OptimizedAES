@@ -228,14 +228,14 @@ public class AES128 {
             byte[] plain;
             byte[] cipher = new byte[16];
             in.read(cipher);
-            //先解密一组
+            // 先解密一组
             plain = decrypt(cipher);
-            //然后每读取一组，输出上一组解密的明文
+            // 然后每读取一组，输出上一组解密的明文
             while (in.read(cipher) != -1) {
                 out.write(plain);
                 plain = decrypt(cipher);
             }
-            //最后有填充的组
+            // 最后有填充的组
             plain = decrypt(cipher);
             out.write(plain, 0, 16 - plain[15]);
             in.close();
